@@ -28,7 +28,7 @@ pages:
         - 'Updating': 'updates/updates.md'
         - 'Update Changelog': 'updates/update_changelog.md'
 - 'Config':
-    - 'Overview': 'config_files/overview.md'
+    - 'Overview': 'config/overview.md'
     - 'Seafile':
         - 'Overview': 'config/seafile/overview.md'
         - 'Ccnet': 'config/seafile/ccnet.md'
