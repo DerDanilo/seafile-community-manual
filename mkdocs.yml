@@ -17,7 +17,7 @@ pages:
     - 'Seafile': 'installation/seafile.md'
     - 'Memcached': 'installation/memcached.md'
     - 'Nginx': 'installation/nginx.md'
-    - 'Let\'s Encrypt': 'installation/le.md'
+    - 'Lets Encrypt': 'installation/le.md'
     - 'Fail2ban': 'installation/fail2ban.md'
     - 'Firewall': 'installation/firewall.md'
     - 'Office':
