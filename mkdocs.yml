@@ -1,0 +1,59 @@
+site_name: Seafile Community Manual
+site_url: http://seafile.readthedocs.io/
+site_description: Seafile Community Manual with Markdown.
+site_author: DerDanilo, Wolle
+theme: readthedocs
+
+repo_url: https://github.com/DerDanilo/seafile-community-manual.git
+
+pages:
+- 'Home': 'index.md'
+- 'Changelog/Updates': 'changelog_updates.md'
+- 'Installation': 
+    - 'System requirements': 'installation/system-requirements.md'
+    - 'Operating systems': 'installation/operating-system.md'
+    - 'Network': 'installation/network.md'
+    - 'MariaDB': 'installation/mariadb.md'
+    - 'Seafile': 'installation/seafile.md'
+    - 'Memcached': 'installation/memcached.md'
+    - 'Nginx': 'installation/nginx.md'
+    - 'Let's Encrypt': 'installation/le.md'
+    - 'Fail2ban': 'installation/fail2ban.md'
+    - 'Firewall': 'installation/firewall.md'
+    - 'Office':
+        - 'Overview': 'installation/office/overview.md'
+        - 'OnlyOffice': 'installation/office/onlyoffice.md'
+        - 'Collabora': 'installation/office/collabora.md'
+- 'Installing Updates':
+        - 'Updating': 'updates/updates.md'
+        - 'Update Changelog': 'updates/update_changelog.md'
+- 'Config':
+    - 'Overview': 'config_files/overview.md'
+    - 'Seafile':
+        - 'Overview': 'config/seafile/overview.md'
+        - 'Ccnet': 'config/seafile/ccnet.md'
+        - 'Seafile': 'config/seafile/seafile.md'
+        - 'Seahub': 'config/seafile/seahub.md'
+        - 'SeaDav': 'config/seafile/seadav.md'
+    - 'Nginx': 'config/nginx.md'
+    - 'Fail2ban': 'config/fail2ban.md'
+    - 'Firewall ufw': 'config/firewall-ufw.md'
+    - 'Firewall nft': 'config/firewall-nft.md'
+    - 'Firewall firewalld': 'config/firewall-firewalld.md'
+- 'Backup/Restore':
+    - 'Overview': 'backup/overview.md'
+    - 'Backup':
+        - 'Tar': 'backup/backup-tar.md'
+        - 'Rsync': 'backup/backup-rsync.md'
+        - 'Borg': 'backup/backup-borg.md'
+    - 'Restore':
+        - 'Tar': 'backup/restore-tar.md'
+        - 'Rsync': 'backup/restore-rsync.md'
+        - 'Borg': 'backup/restore-borg.md'
+
+markdown_extensions:
+    - toc:
+        permalink:
+    - admonition:
+
+copyright: Copyright &copy; 2017 <a href="https://forum.seafile.com">DerDanilo, Wolle - Seafile Community</a>, <a href="/#contribution">Contribution</a>.
