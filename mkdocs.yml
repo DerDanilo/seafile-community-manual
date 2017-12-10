@@ -13,11 +13,11 @@ pages:
     - 'System requirements': 'installation/system-requirements.md'
     - 'Operating systems': 'installation/operating-system.md'
     - 'Network': 'installation/network.md'
-    - 'MariaDB': 'installation/mariadb.md'
+    - 'Database': 'installation/database.md'
     - 'Seafile': 'installation/seafile.md'
-    - 'Memcached': 'installation/memcached.md'
-    - 'Nginx': 'installation/nginx.md'
-    - 'Lets Encrypt': 'installation/le.md'
+    - 'Memcache': 'installation/memcached.md'
+    - 'ReverseProxy/Webserver': 'installation/reverseproxy-webserver.md'
+    - 'Valid SSL Cert': 'installation/valid-ssl.md'
     - 'Fail2ban': 'installation/fail2ban.md'
     - 'Firewall': 'installation/firewall.md'
     - 'Office':
@@ -36,6 +36,7 @@ pages:
         - 'Seahub': 'config/seafile/seahub.md'
         - 'SeaDav': 'config/seafile/seadav.md'
     - 'Nginx': 'config/nginx.md'
+    - 'MariaDB': 'config/mariadb.md'
     - 'Fail2ban': 'config/fail2ban.md'
     - 'Firewall ufw': 'config/firewall-ufw.md'
     - 'Firewall nft': 'config/firewall-nft.md'
@@ -56,4 +57,4 @@ markdown_extensions:
         permalink:
     - admonition:
 
-copyright: Copyright &copy; 2017 <a href="https://forum.seafile.com">DerDanilo, Wolle - Seafile Community</a>, <a href="/#contribution">Contribution</a>.
+copyright: Copyright &copy; 2017 <a href="https://forum.seafile.com/users/derdanilo">DerDanilo</a>, <a href="https://forum.seafile.com/users/wolle">Wolle</a>, <a href="/#contribution">Contribution</a>.

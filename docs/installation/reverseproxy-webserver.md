@@ -2,12 +2,12 @@
 
 ---
 
-# What is the Nginx web server?
-Nginx is a web server, which we will use as a reverse proxy. In this mode incoming requests can distributed to several services, 
-in our case to the seafile and seahub services. Furthermore Nginx can secure the connection to the browsers or clients providing 
+# What is Nginx web server (reverse proxy)?
+Nginx is a web server, which we will use as a (local) reverse proxy. In this mode incoming requests can distributed to several services, 
+in our case to the Seafile, Seahub and SeaDav services. Furthermore Nginx can secure the connection to the browsers or clients providing 
 encryption through TLS protocol a.s.o.
 
-Please check the [Wikipedia page](https://en.wikipedia.org/wiki/nginx) for further information.
+If you want further information please check the [Wikipedia page](https://en.wikipedia.org/wiki/nginx) for further information.
 
 # Tasks
 * Install Nginx

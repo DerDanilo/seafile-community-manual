@@ -3,7 +3,8 @@
 ---
 
 # What is MariaDB?
-Please check the [Wikipedia page](https://en.wikipedia.org/wiki/MariaDB).
+We install MariaDB as database server.  
+If you want further information please check the [Wikipedia page](https://en.wikipedia.org/wiki/MariaDB).
 
 # Tasks
 * Install MariaDB

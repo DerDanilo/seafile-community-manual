@@ -3,7 +3,8 @@
 ---
 
 # What is memcached?
-Please check the [Wikipedia page](https://en.wikipedia.org/wiki/Memcached).
+We install memcached to speed up the response of the webinterface.  
+If you want further information please check the [Wikipedia page](https://en.wikipedia.org/wiki/Memcached).
 
 # Tasks
 * Install Memcached

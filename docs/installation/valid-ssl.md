@@ -2,12 +2,22 @@
 
 ---
 
-## Digital Certificate / Let's Encrypt
+## What is a Digital Certificate / Let's Encrypt
 At this point your server should be reachable by your domain, but our self-signed certificate is not trusted.
 
 We will get an X.509 certificate from [Let's Encrypt](https://letsencrypt.org/ "Let's Encrypt") for free, which will be accepted by almost every actual web browser.
 
 Let's Encrypt uses the ACME protocol to ensure you control the domain. We need a client to get a certificate and to renew it before it expires.
+
+## Tasks
+
+* Install Certbot/ACME.sh
+* Configure webserver to allow cert requests
+* Configure auto renewal of certificate
+
+---
+
+
 ### Install Certbot and configure the system
 We will use [Certbot](https://certbot.eff.org/ "Certbot"), the standard ACME client from Let's Encrypt. Install it:
 ```sh

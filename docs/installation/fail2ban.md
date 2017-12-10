@@ -3,7 +3,8 @@
 ---
 
 # What is fail2ban?
-Please check the [Wikipedia page](https://en.wikipedia.org/wiki/Fail2ban).
+We install fail2ban to protect the server from attacks and automatically block IP adresses.
+If you want further information please check the [Wikipedia page](https://en.wikipedia.org/wiki/Fail2ban).
 
 # Tasks
 * Install Fail2ban
