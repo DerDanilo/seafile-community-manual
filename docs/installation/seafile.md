@@ -73,7 +73,7 @@ root@cloudserver:~# /opt/seafile/seafile-server-*/setup-seafile-mysql.sh
 ```
 
 - `[ server name ]` Cloud (whatever you like)
-- `[ This server's ip or domain ]` 192.168.1.2 (Server's IP address)
+- `[ This server's ip or domain ]` <Server IP> (Server's IP address)
 - `[ default "/opt/seafile/seafile-data" ]` /srv/seafile-data
 - `[ default "8082" ]` (leave the port as it is)
 - `[ 1 or 2 ]` 1 (create new databases)
@@ -139,10 +139,10 @@ PORT     STATE SERVICE
 8082/tcp open  blackice-alerts
 
 Nmap done: 1 IP address (1 host up) scanned in 0.03 seconds
-$ nmap 192.168.1.2
+$ nmap <Server IP>
 
 Starting Nmap 7.40 ( https://nmap.org ) at 2017-07-04 06:59 EDT
-Nmap scan report for 192.168.1.2
+Nmap scan report for <Server IP>
 Host is up (0.000024s latency).
 Not shown: 997 closed ports
 PORT     STATE SERVICE
@@ -154,7 +154,7 @@ Nmap done: 1 IP address (1 host up) scanned in 0.03 seconds
 ```
 For a test open a web browser and log into your new Seafile Server:
 ```bash
-http://192.168.1.2/8000/
+http://<Server IP>/8000/
 ```
 
 Now stop Seafile Server
@@ -226,7 +226,7 @@ root@cloudserver:~# systemctl start seafile
 root@cloudserver:~# systemctl start seahub
 ```
 
-Verify if it is working (web browser: `http://192.168.1.2:8000/`)
+Verify if it is working (web browser: `http://<Server IP>:8000/`)
 
 You can stop Seafile Server:
 ```sh
