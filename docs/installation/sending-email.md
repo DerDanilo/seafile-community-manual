@@ -5,7 +5,7 @@
 # No fixed IP or Domain?
 
 If you have no fixed IP and/or no Domain you can simply skip this step of the setup.  
-Please check the [config description](../config/sending-email) for sending e-mails via another
+Please check the [config description](../config/seafile/sending-email) for sending e-mails via another
 mailserver or e.g. gmail.
 
 ---
