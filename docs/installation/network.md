@@ -203,6 +203,7 @@ Connection: keep-alive
 ETag: "596cbe9d-264"
 Accept-Ranges: bytes
 ```
+
 Or test using nmap:
 ```shell
 root@cloudserver:~# nmap -4 192.168.1.2
@@ -216,12 +217,15 @@ PORT   STATE SERVICE
 80/tcp open  http
 ```
 
+
+Open a web browser: `https://192.168.1.2/`. If you see the *default nginx page*, it works.
+
 ---
 
 ### IPv6
 
 If your server has a global IPv6 address, you can test it with a web browser on a computer in local LAN having IPv6 enabled as well: `http://[2003:a:452:e300:5054:ff:feae:a412]`. 
-This works because the Nginx 'default' server (which we have still enabled) comes with IPv6 enabled.
+This works because the Nginx 'default' server comes with IPv6 enabled.
 
 You can test with curl as well:
 ```shell
@@ -252,8 +256,6 @@ PORT   STATE SERVICE
 
 Note that port 80 is open because of the default server, port 443 is not (for now)!
 
-```
-
 Test it using nmap:
 ```shell
 root@cloudserver:~# nmap -6 fe80::5054:ff:feae:a412
@@ -268,7 +270,7 @@ PORT    STATE SERVICE
 443/tcp open  https
 ```
 
-Open a web browser: `https://[2003:a:452:e300:5054:ff:feae:a412]/seafile`. Mind the *https:* as there is no redirection for now. If you see the *Log In page*, it works. Do not log in for the moment because in Seafile Server we set our IPv4 address as SERVICE_URL and FILE_SERVER_ROOT. It will mix up things sooner or later if you log in. Just be satisfied with the knowledge it could work if we would continue. But in that case we would break IPv4.
+Open a web browser: `http://[2003:a:452:e300:5054:ff:feae:a412]/`. If you see the *default nginx page*, it works. 
 
 ---
 
