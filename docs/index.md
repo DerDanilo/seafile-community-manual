@@ -14,10 +14,10 @@ It is not our intension to replace the [original manual](https://manual.seafile.
 
 ### How does it work?
 
-This manual will guide you through each step of the setup. If you are new to Seafile we encourage
-you to do the recommend checks whenever we suggest them. This helps to pinpoint possible errors before you have to search for them.
+Don't expect this manual to provide you with easy copy & paste commands/config only. This manual will guide you through each step of the setup.
+If you are new to Seafile we encourage you to do the recommend checks whereever we suggest them. This helps to pinpoint possible errors before you even have to search for them.
 
-This manual will show how to setup a Seafile Server using MariaDBas database server, Memcached to speed up the webinterface response and Nginx as local reverse proxy.
+This manual will show how to setup a Seafile Server using MariaDB as the database server, Memcached to speed up the webinterface response and Nginx as local reverse proxy.
 All operations will be peformed as root unless otherwise specified. So login as root or 'su' to root, if logged in as ordinary user:
 ```bash
 su
@@ -36,7 +36,7 @@ If you want to deploy Seafile Server CE you are welcome to use our guide.
 
 ### Seafile Server Professional Edition
 
-If you want to deploy Seafile PRO, you are welcome to use our guide. Be aware that this guide does only cover the setup for CE version.
+If you want to deploy Seafile PRO, you are welcome to use our guide. Be aware that this guide does only cover the setup for Seafile Server CE.
 For support and official documentation please consult the [original manual](https://manual.seafile.com/deploy_pro/).
 
 ## Contribution
