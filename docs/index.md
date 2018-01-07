@@ -3,14 +3,14 @@
 [TOC]
 
 ---
-**What is this guide for?**
+### What is this guide for?
 
 We write this step-by-step guide to enable all users to setup Seafile on their own but without the struggle 
 of having to read the more complex and sometimes confusing [original manual](https://manual.seafile.com/).
 
 It is not our intension to replace the [original manual](https://manual.seafile.com/) !
 
-**How does it work?**
+### How does it work?
 
 This manual will guide you through each step of the setup. If you are new to Seafile we encourage
 you to do the recommend checks whenever we suggest them. This helps to pinpoint possible errors before you have to search for them.
@@ -27,12 +27,12 @@ sudo -i
 
 ## CE vs PRO Edition
 
-**Seafile Server Community Edition**
+### Seafile Server Community Edition
 
 This guide is mantained from community members only. Therefor this manual only covers Seafile Server CE.
 If you want to deploy Seafile Server CE you are welcome to use our guide.
 
-**Seafile Server Professional Edition**
+### Seafile Server Professional Edition
 
 If you want to deploy Seafile PRO, you are welcome to use our guide. Be aware that this guide does only cover the setup for CE version.
 For support and official documentation please consult the [original manual](https://manual.seafile.com/deploy_pro/).
