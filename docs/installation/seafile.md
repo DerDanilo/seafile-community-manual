@@ -3,35 +3,14 @@
 ---
 
 # Tasks
+* Create a Seafile service user
 * Install Seafile Server
+* Change Seafile Server data location
 * Enable Seafile Server autostart
 
 ---
 
-## Install Seafile Server
-We will install Seafile Server in `/opt/seafile`, Seafile data in `/srv/seafile_data`.
-
-### Install required packages
-
-**Debian**
-```sh
-root@cloudserver:~# apt-get install python-setuptools python-imaging \
-python-ldap python-mysqldb python-memcache python-urllib3
-```
-
-**Ubuntu**
-```sh
-root@cloudserver:~# apt-get install python-setuptools python-imaging \
-python-ldap python-mysqldb python-memcache python-urllib3
-```
-
-**CentOS**
-```sh
-root@cloudserver:~# yum install python-setuptools python-imaging \
-python-ldap python-mysqldb python-memcache python-urllib3
-```
-
-### Create system user
+# Create system user
 Create a user and his own group to run the Seafile Server. We choose the name `seafserver` for the user as well as for his group. `useradd -h` for a short help of the switches.
 ```sh
 root@cloudserver:~# mkdir /opt/seafile
@@ -49,14 +28,37 @@ root@cloudserver:~#  grep seafserver /etc/group
 seafserver:x:1001:
 ```
 
-### Download latest stable Seafile Server package
+# Install Seafile Server
+We will install Seafile Server in `/opt/seafile`, Seafile data in `/srv/seafile_data`.
+
+## Install required packages
+
+**Debian**
+```sh
+root@cloudserver:~# apt-get update && apt-get install python-setuptools python-imaging \
+python-ldap python-mysqldb python-memcache python-urllib3
+```
+
+**Ubuntu**
+```sh
+root@cloudserver:~# apt-get update && apt-get install python-setuptools python-imaging \
+python-ldap python-mysqldb python-memcache python-urllib3
+```
+
+**CentOS**
+```sh
+root@cloudserver:~# yum install python-setuptools python-imaging \
+python-ldap python-mysqldb python-memcache python-urllib3
+```
+
+## Download latest stable Seafile Server package
 Download the lastest Seafile Server package from [here](https://www.seafile.com/en/download) and put it in `/opt/Seafile/Server/installed`. Adjust the version number.
 ```sh
 root@cloudserver:~#  mkdir /opt/seafile/installed
 root@cloudserver:~#  wget -P /opt/seafile/installed https://download.seadrive.org/seafile-server_6.2.3_x86-64.tar.gz
 ```
 
-### Untar the package
+## Untar the package
 ```sh
 root@cloudserver:~# tar -xz -C /opt/seafile -f /opt/seafile/installed/seafile-server_*
 ```
@@ -69,7 +71,7 @@ drwxr-xr-x 2 root root 4096 Jul  3 17:22 installed
 drwxrwxr-x 6  500  500 4096 Jun 13 07:52 seafile-server-6.2.3
 ```
 
-### Configure Seafile Server and databases
+## Configure Seafile Server and databases
 ```sh
 # Create the seafile data folder
 root@cloudserver:~# mkdir /srv/seafile-data
@@ -95,7 +97,7 @@ root@cloudserver:~# /bin/bash /opt/seafile/seafile-server-*/setup-seafile-mysql.
 |`[ default "seahub-db" ]`|<  >|
 
 
-### Set file and folder permission
+## Set file and folder permission
 Now the user seafserver needs to own the whole stuff:
 ```sh
 root@cloudserver:~# chown -R seafserver:seafserver /opt/seafile  /srv/seafile-data
@@ -116,7 +118,7 @@ total 4
 drwx------ 3 seafserver seafserver 4096 Jul  3 17:59 seafile-data
 ```
 
-### First Start of Seafile Server
+## First Start of Seafile Server
 We can start Seafile Server as user *seafserver*
 ```sh
 root@cloudserver:~# su -l seafserver
@@ -131,7 +133,7 @@ $ seafile-server-latest/seahub.sh start
 |`[ admin password again ]`| < password again > |
 
 
-### Change of Seafile-data location
+## Change of Seafile-data location
 
 Stop Seafile Server
 ```sh
@@ -162,7 +164,7 @@ At least start your Seafile Server again as user 'seafserver' to check it's stil
 
 --- 
 
-## Verification
+# Verification
 Use `nmap` to check the necessary ports are open. `22` is `SSH`, only open if you installed `SSH server`. `3306` is `mariadb`, only bound to `localhost`, 
 not accessible from outside via network. `8000` is `seahub`, the `web interface`. `8082` is `seafile`, the `data service daemon`:
 ```sh
@@ -200,7 +202,7 @@ http://<Server IP>/8000/
 
 --- 
 
-## Enable Seafile Server autostart (systemd)
+# Enable Seafile Server autostart (systemd)
 
 For a convenient start of Seafile Server we need some appropriate definition files for the operating system. Debian 9/Ubuntu/CentOS use systemd as 
 init system, so we create service files for systemd. 

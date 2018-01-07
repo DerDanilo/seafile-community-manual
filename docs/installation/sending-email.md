@@ -53,7 +53,7 @@ postfix postfix/protocols       select  all
 postfix postfix/chattr  boolean false
 EOF
 
-apt-get install postfix -y
+apt-get update && apt-get install postfix -y
 dpkg-reconfigure postfix
 ```
 
@@ -72,6 +72,8 @@ systemctl enable postfix
 ```sh
 systemctl enable postfix
 ```
+
+---
 
 # Set DNS SPF record
 
