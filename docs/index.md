@@ -3,6 +3,8 @@
 [TOC]
 
 ---
+## About
+
 ### What is this guide for?
 
 We write this step-by-step guide to enable all users to setup Seafile on their own but without the struggle 
