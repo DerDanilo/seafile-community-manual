@@ -1,3 +1,5 @@
+# Frontend Webserver  local ReverseProxy
+
 [TOC]
 
 ---
@@ -37,7 +39,7 @@ name/port combination matches. We don't want to switch that off, so we need an a
 We will use our IP address for now as the name of our virtual Nginx server.
 
 ### Create a basic Nginx configuration for Seafile Server
-Create a file `/etc/nginx/sites-available/seafile` with the following contents (adjust the IP adress in 'server_name'):
+Create a file `/etc/nginx/conf.d/seafile.conf` with the following contents (adjust the IP adress in 'server_name'):
 ```
 server {
     listen       80;
@@ -50,7 +52,6 @@ server {
         proxy_set_header   X-Real-IP $remote_addr;
         proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header   X-Forwarded-Host $server_name;
-        proxy_set_header   X-Forwarded-Proto https;
         proxy_http_version 1.1;
         proxy_connect_timeout  36000s;
         proxy_read_timeout  36000s;
@@ -78,7 +79,7 @@ server {
 
     location /seafmedia {
         rewrite ^/seafmedia(.*)$ /media$1 break;
-        root /opt/Seafile/Server/seafile-server-latest/seahub;
+        root /opt/seafile/seafile-server-latest/seahub;
     }
 
     location /seafdav {
@@ -87,7 +88,6 @@ server {
         proxy_set_header   X-Real-IP $remote_addr;
         proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header   X-Forwarded-Host $server_name;
-        proxy_set_header   X-Forwarded-Proto https;
         proxy_http_version 1.1;
         proxy_connect_timeout  36000s;
         proxy_read_timeout  36000s;
@@ -105,24 +105,19 @@ server {
 ```
 The most interesting parts of this configuration are:
 ```
-listen 80;               The port Nginx listens to
-server_name 192.168.1.2; The 'name' of the virtual server
-server_tokens off;       Nginx does not reveal its version number to make life more difficult for attackers
-location /seafile        proxy for seahub (!)
-location /seafhttp       proxy for seafile (!)
-location /seafmedia      static content of Seafile Server
-location /seafdav        a goodie for you, we don't use it for now
-access_log and error_log Nginx log files
+listen 80;               	The port Nginx listens to
+server_name 192.168.1.2; 	The 'name' of the virtual server
+server_tokens off;       	Nginx does not reveal its version number to make life more difficult for attackers
+location /seafile        	proxy for seahub (!)
+location /seafhttp       	proxy for seafile (!)
+location /seafmedia      	static content of Seafile Server
+location /seafdav        	a goodie for you, we don't use it for now
+access_log and error_log 	Nginx log files
 ```
 
-Stop Nginx:
+Enable the seafile configuration by restarting nginx:
 ```sh
-root@cloudserver:~# systemctl stop nginx
-```
-
-Enable the seafile configuration in Nginx:
-```sh
-root@cloudserver:~# ln -s /etc/nginx/sites-available/seafile /etc/nginx/sites-enabled/seafile
+root@cloudserver:~# systemctl restart nginx
 ```
 
 ### Adjusting Seafile Server for use with Nginx
@@ -132,12 +127,12 @@ root@cloudserver:~# systemctl stop seahub
 root@cloudserver:~# systemctl stop seafile
 ```
 
-Adjust 'SERVICE_URL' in `/opt/Seafile/Server/conf/ccnet.conf` (mind the IP address):
+Adjust 'SERVICE_URL' in `/opt/seafile/conf/ccnet.conf` (mind the IP address):
 ```
 SERVICE_URL = http://192.168.1.2/seafile
 ```
 
-Add some lines in `/opt/Seafile/Server/conf/seahub_settings.py` between `SECRET_KEY` and `DATABASES` (mind the IP address):
+Add some lines in `/opt/Seafile/conf/seahub_settings.py` between `SECRET_KEY` and `DATABASES` (mind the IP address):
 ```
 SECRET_KEY = ...
 
@@ -155,7 +150,7 @@ DATABASES = ...
 
 Adjust `ExecStart` in `/etc/systemd/system/seahub.service` to tell seahub it is used in conjunction with Nginx:
 ```
-ExecStart=/opt/seafile/seafile-server-latest/seahub.sh start-fastcgi
+ExecStart=/opt/seafile/seafile-server-latest/seahub.sh start
 ```
 
 At least a little security enhancement. We will bind seafile service to localhost only which makes it reachable through Nginx only. Add a line 
@@ -176,7 +171,6 @@ root@cloudserver:~# systemctl start nginx
 ```
 
 If there are no errors reported, you can test it with your web browser: `http://192.168.1.2/seafile`.
-
 If everything looks fine, it is time for a backup of the installation!
 
 
@@ -186,11 +180,12 @@ We modified ccnet.conf which affects seafile and seahub. seafile.conf affects se
 The Nginx configuration affects only Nginx!
 
 Check the ports. They need to be open for localhost.
-- 22: openssh (only open if installed)
-- 80: nginx
-- 3306: mysql (or mariadb)
-- 8000: seahub
-- 8082: seafile
+
+- `22:` openssh (only open if installed)
+- `80:` nginx
+- `3306:` mysql (or mariadb)
+- `8000:` seahub
+- `8082:` seafile
 
 With the exeption of port `22` the only port open from LAN should be port `80`.
 ```sh
@@ -209,6 +204,7 @@ PORT     STATE SERVICE
 8082/tcp open  blackice-alerts
 
 Nmap done: 1 IP address (1 host up) scanned in 1.64 seconds
+
 root@cloudserver:~# nmap 192.168.1.2
 
 Starting Nmap 7.40 ( https://nmap.org ) at 2017-07-18 11:27 CEST
@@ -260,17 +256,17 @@ ETag: "593f7cf8-3144"
 Accept-Ranges: bytes
 ```
 
-If you get 'HTTP/1.1 404 Not Found', did you adjust the IP address in `/etc/nginx/sites-available/seafile`? Have you set the link in `/etc/nginx/sites-enabled/` to enable it? 
+If you get *HTTP/1.1 404 Not Found*, did you adjust the IP address in `/etc/nginx/conf.d/seafile.conf`? Have you set the link in `/etc/nginx/conf.d/` to enable it? 
 'Server: nginx/1.10.3' is an indication, that the 'default server' is taken, not the 'seafile server'. And yes, we should turn that off, but at this point it's helpful. 
-'Server: nginx': Paths in `location /seafmedia` in `/etc/nginx/sites-available/seafile` and the Seafile Server installation do not match. Is the file present:
+'Server: nginx': Paths in `location /seafmedia` in `/etc/nginx/conf.d/seafile.conf` and the Seafile Server installation do not match. Is the file present:
 ```sh
 root@cloudserver:~# ls -l /opt/seafile/seafile-server-latest/seahub/media/img/seafile-logo.png
 -rw-rw-r-- 1 seafserver seafserver 12612 Jun 13 07:49 /opt/seafile/seafile-server-latest/seahub/media/img/seafile-logo.png
 ```
 
 'HTTP/1.1 403 Forbidden': Check the filesystem access rights 
-for `/opt/seafile/seafile-server-latest/seahub/media/img/seafile-logo.png`. Each directory in the whole path must have set read and execute bit for others (drwxr-x**r**-**x**), 
-the file itself must be world readable (-rwxr-x**r**--).
+for `/opt/seafile/seafile-server-latest/seahub/media/img/seafile-logo.png`. Each directory in the whole path must have set read and execute bit for others `(drwxr-xr-x)`, 
+the file itself must be world readable `(-rwxr-xr--)`.
 
 Avatar Icon damaged: check filesystem rights for `/srv/seafile/seahub-data/avatars/default.png`. The whole path must be world readable.
 
@@ -287,7 +283,7 @@ Location: http://192.168.1.2/seafile/accounts/login/?next=/seafile/
 Content-Language: en
 ```
 
-If you dont get the 'HTTP/1.1 302 FOUND', there is a problem between seahub daemon and Nginx. Activated `start-fastcgi` in `seahub.service`?
+If you dont get the *HTTP/1.1 302 FOUND*, there is a problem between seahub daemon and Nginx. Activated `start-fastcgi` in `seahub.service` instead of `start`?
 
 Still problems? Look into the log-files in `/var/log/nginx/`, `/opt/seafile/logs/` and `/var/log/messages`.
 
@@ -298,12 +294,16 @@ If you got it working, back up the installation.
 ## Access from Internet
 
 Depending on your internet connection your server might be accessible from internet via IPv4, IPv6, both or not at all.
+
 ### root server or vServer
 You are done, skip to next chapter.
+
 ### IPv6 Behind NAT router in local LAN
+
 Set up port forwarding in your router:
-- port 80/TCP to IP 192.168.1.2 port 80
-- port 443/TCP to IP 192.168.1.2 port 443
+
+- port 80/TCP 	to IP 192.168.1.2 	port 80
+- port 443/TCP 	to IP 192.168.1.2 	port 443
 
 Get your public IPv4 address:
 ```sh
@@ -363,31 +363,34 @@ current IP address(es). Switch your router off and on and whatever you can think
 If you don't have a public IPv4 address, don't configure an IPv4 address for your domain! If you don't have a public IPv6 address, don't configure an 
 IPv6 address for your domain! You may configure your public IPv4 address and your global IPv6 address of your server, if you can reach your server with both protocols.
 
-Configure `/etc/nginx/sites-available/seafile` to be web server for your domain. IPv6 users may also enable port 80 for IPv6. Adjust the server name to your needs:
+Configure `/etc/nginx/conf.d/seafile.conf` to be web server for your domain. IPv6 users may also enable port 80 for IPv6. Adjust the server name to your needs:
 ```
 server {
     listen       80;
+	# Following line only if the server has IPv6 !
     listen       [::]:80;
+	
     server_name  home.seafile.com;
     server_tokens off;
 ...
-
 server {
     listen       443 ssl http2;
+	# Following line only if the server has IPv6 !
     listen       [::]:443 ssl http2;
+	
     server_name  home.seafile.com;
     server_tokens off;
 ...
 ```
 
-Configure `/opt/Seafile/Server/conf/ccnet.conf` for your domain:
+Configure `/opt/seafile/conf/ccnet.conf` for your domain:
 ```
 ...
 SERVICE_URL = https://home.seafile.com/seafile
 ...
 ```
 
-Configure `/opt/Seafile/Server/conf/seahub_settings.py` for your domain:
+Configure `/opt/seafile/conf/seahub_settings.py` for your domain:
 ```
 ...
 FILE_SERVER_ROOT = 'https://home.seafile.com/seafhttp'
@@ -402,9 +405,11 @@ root@cloudserver:~# systemctl start seahub
 root@cloudserver:~# systemctl restart nginx
 ```
 
-Test it with your web browser: `http://home.seafile.com/seafile`. If it does not work, try from outside your LAN. If that works, but from inside your LAN it does not, 
-it's probably a problem with [hairpinning](https://en.wikipedia.org/wiki/Hairpinning "hairpinning") (also known as NAT loopback). In most cases, the router simply does 
-not support it. You could try [split DNS](https://en.wikipedia.org/wiki/Split-horizon_DNS "split DNS"), but that's evil and I didn't tell you. Better try a different router.
+Test it with your web browser: `http://home.seafile.com/seafile`.  
+If it does not work, try from outside your LAN. If that works, but from inside your LAN it does not, 
+it's probably a problem with [hairpinning](https://en.wikipedia.org/wiki/Hairpinning "hairpinning") (also known as NAT loopback). 
+In most cases, the router simply does not support it. You could try [split DNS](https://en.wikipedia.org/wiki/Split-horizon_DNS "split DNS"), 
+but that's evil and I didn't tell you. Better try a different router.
 
 ---
 
@@ -441,8 +446,9 @@ It will be visible in the certificate.
 root@cloudserver:~# cd /etc/ssl/private
 root@cloudserver:/etc/ssl/private# openssl genrsa -out privkey.pem 2048
 root@cloudserver:/etc/ssl/private# openssl req -new -x509 -key privkey.pem -out cacert.pem -days 3650
+
+# The following command will require some time to process
 root@cloudserver:/etc/ssl/private# openssl dhparam -outform PEM -out dhparam2048.pem 2048
-root@cloudserver:/etc/ssl/private# cd
 ```
 
 Verify the result:
@@ -454,7 +460,7 @@ total 12
 -rw------- 1 root root 1679 Jul 18 15:44 privkey.pem
 ```
 
-Modify `/etc/nginx/sites-available/seafile` to be:
+Modify `/etc/nginx/conf.d/seafile.conf` to be:
 ```
 server {
     listen       80;
@@ -482,12 +488,11 @@ server {
 
     location /seafile {
 ...
-        fastcgi_param   HTTPS               on;
-        fastcgi_param   HTTP_SCHEME         https;
+        proxy_set_header   X-Forwarded-Proto https;
 ...
     location /seafdav {
 ...
-        fastcgi_param   HTTPS               on;
+        proxy_set_header   X-Forwarded-Proto https;
 ...
 ```
 

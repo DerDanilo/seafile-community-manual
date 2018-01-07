@@ -52,7 +52,7 @@ python-ldap python-mysqldb python-memcache python-urllib3
 ```
 
 ## Download latest stable Seafile Server package
-Download the lastest Seafile Server package from [here](https://www.seafile.com/en/download) and put it in `/opt/Seafile/Server/installed`. Adjust the version number.
+Download the lastest Seafile Server package from [here](https://www.seafile.com/en/download) and put it in `/opt/Seafile/installed`. Adjust the version number.
 ```sh
 root@cloudserver:~#  mkdir /opt/seafile/installed
 root@cloudserver:~#  wget -P /opt/seafile/installed https://download.seadrive.org/seafile-server_6.2.3_x86-64.tar.gz

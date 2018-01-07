@@ -17,7 +17,7 @@ pages:
     - 'Seafile': 'installation/seafile.md'
     - 'Sending E-Mail': 'installation/sending-email.md'
     - 'Memcached': 'installation/memcached.md'
-    - 'ReverseProxy/Webserver': 'installation/reverseproxy-webserver.md'
+    - 'Frontend Webserver': 'installation/reverseproxy-webserver.md'
     - 'Valid SSL Cert': 'installation/valid-ssl.md'
     - 'Fail2ban': 'installation/fail2ban.md'
     - 'Firewall': 'installation/firewall.md'
