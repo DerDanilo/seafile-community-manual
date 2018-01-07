@@ -117,16 +117,18 @@ drwx------ 3 seafserver seafserver 4096 Jul  3 17:59 seafile-data
 ```
 
 ### First Start of Seafile Server
-Now we can start Seafile Server as user 'seafserver'
+Now we can start Seafile Server as user *seafserver*
 ```sh
 root@cloudserver:~# su -l seafserver
 $ seafile-server-latest/seafile.sh start
 $ seafile-server-latest/seahub.sh start
 ```
 
-- [ admin email ] (enter the mail address you'll use as admin account)
-- [ admin password ] (give it a password)
-- [ admin password again ] (password again)
+|Task| Action |
+|--:| :-- |
+|`[ admin email ]`| < enter the mail address you'll use as admin account > |
+|`[ admin password ]`| < give it a password > |
+|`[ admin password again ]`| < password again > |
 
 --- 
 
