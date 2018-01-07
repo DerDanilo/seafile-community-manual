@@ -78,22 +78,24 @@ root@cloudserver:~# mkdir /srv/seafile-data
 root@cloudserver:~# /bin/bash /opt/seafile/seafile-server-*/setup-seafile-mysql.sh
 ```
 
-|:`[ server name ]`:| :< Servername >: |
-|:`[ This server's ip or domain ]`:|:< Server's DNS or IP address >:|
-|:`[ default "/opt/seafile/seafile-data" ]`:|:"/srv/seafile-data":|
-|:`[ default "8082" ]`:|:< leave the port as it is >:|
-|:`[ 1 or 2 ]`:|:"1 (create new databases)":|
-|:`[ default "localhost" ]`:|:< database runs on this server >:|
-|:`[ default "3306" ]`:|:< standard port for mysql or mariadb >:|
-|:`[ root password ]`:|:< enter DB server root password >:|
-|:`[ default "seafile" ]`:|:< it's the name of the user in mariadb >:|
-|: `[ password for seafile ]`:|:< give the user a password, no need to remember >:|
-|:`[ default "ccnet-db" ]`:|:<  >:|
-|:`[ default "seafile-db" ]`:|:<  >:|
-|:`[ default "seahub-db" ]`:|:<  >:|
+|Task| Action |
+|:-:| :-: |
+|`[ server name ]`| < Servername > |
+|`[ This server's ip or domain ]`|< Server's DNS or IP address >|
+|`[ default "/opt/seafile/seafile-data" ]`|"/srv/seafile-data"|
+|`[ default "8082" ]`|< leave the port as it is >|
+|`[ 1 or 2 ]`|"1 (create new databases)"|
+|`[ default "localhost" ]`|< database runs on this server >|
+|`[ default "3306" ]`|< standard port for mysql or mariadb >|
+|`[ root password ]`|< enter DB server root password >|
+|`[ default "seafile" ]`|< it's the name of the user in mariadb >|
+| `[ password for seafile ]`|< give the user a password, no need to remember >|
+|`[ default "ccnet-db" ]`|<  >|
+|`[ default "seafile-db" ]`|<  >|
+|`[ default "seahub-db" ]`|<  >|
 
 
-### Fix file and folder permission
+### Set file and folder permission
 Now the user seafserver needs to own the whole stuff:
 ```sh
 root@cloudserver:~# chown -R seafserver:seafserver /opt/seafile  /srv/seafile-data
