@@ -21,4 +21,4 @@
 - 15GB+ for system
 - 100GB+ for Seafile data
 
-*It is recommended that you use multiple disks in a SW/HW RAID to provide better I/O performance.*
+It is recommended that you use multiple disks in a SW/HW RAID to provide better I/O performance.
