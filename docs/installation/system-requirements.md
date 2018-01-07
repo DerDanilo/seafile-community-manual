@@ -1,5 +1,3 @@
-# System requirements
-
 [TOC]
 
 ---

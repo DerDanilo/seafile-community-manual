@@ -8,7 +8,7 @@ repo_url: https://github.com/DerDanilo/seafile-community-manual.git
 
 pages:
 - 'Home': 'index.md'
-- 'Changelog/Updates': 'changelog_updates.md'
+- 'Manual Changelog/Updates': 'manual_changelog_updates.md'
 - 'Installation': 
     - 'System requirements': 'installation/system-requirements.md'
     - 'Operating systems': 'installation/operating-system.md'
