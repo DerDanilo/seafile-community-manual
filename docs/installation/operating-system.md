@@ -18,20 +18,20 @@ Still in progress and may not be complete:
 
 ## Operating Systems
 ### Debian
-You can use Debian 9 *"Stretch"* 64-bit as operating system.  
-The *"64-bit PC Network installer"* will be sufficiant. It can be obtained from [www.debian.org](https://www.debian.org/distrib/). 
+You can use Debian 9 *Stretch* 64-bit as operating system.  
+The *64-bit PC Network installer* will be sufficiant. It can be obtained from [www.debian.org](https://www.debian.org/distrib/). 
 
 ### Ubuntu LTS
-You can use Ubuntu 16.04 LTS *"Xenial"* 64-bit as operating system.  
-The *"64-bit PC Network installer"* will be sufficiant. It can be obtained from [www.ubuntu.com](https://www.ubuntu.com/download/alternative-downloads). 
+You can use Ubuntu 16.04 LTS *Xenial* 64-bit as operating system.  
+The *64-bit PC Network installer* will be sufficiant. It can be obtained from [www.ubuntu.com](https://www.ubuntu.com/download/alternative-downloads). 
 
 ### CentOS
 You can use CentOS 7 64-bit as operating system.  
-The *"64-bit PC Network installer"* will be sufficiant. It can be obtained from [www.centos.org](https://www.centos.org/download/). 
+The *64-bit PC Network installer* will be sufficiant. It can be obtained from [www.centos.org](https://www.centos.org/download/). 
 
 ### Raspbian (Raspberry Pi)
-You can use  Debian 9 *"Raspbian"* as operating system.   
-We recommend to use the *"Minimal image"*. It can be obtained from [www.raspberrypi.org](https://www.raspberrypi.org/downloads/raspbian/).
+You can use  Debian 9 *Raspbian* as operating system.   
+We recommend to use the *Minimal image*. It can be obtained from [www.raspberrypi.org](https://www.raspberrypi.org/downloads/raspbian/).
 
 ### Docker (Linux & Windows)
 You may also use the [offical docker image](https://hub.docker.com/r/seafileltd/seafile/) of Seafile server.
