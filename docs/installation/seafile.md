@@ -79,7 +79,7 @@ root@cloudserver:~# /bin/bash /opt/seafile/seafile-server-*/setup-seafile-mysql.
 ```
 
 |Task| Action |
-|:-:| :-: |
+|--:| :-- |
 |`[ server name ]`| < Servername > |
 |`[ This server's ip or domain ]`|< Server's DNS or IP address >|
 |`[ default "/opt/seafile/seafile-data" ]`|"/srv/seafile-data"|
