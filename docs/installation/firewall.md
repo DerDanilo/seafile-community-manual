@@ -13,7 +13,11 @@ Please check the [Wikipedia page](https://en.wikipedia.org/wiki/Firewall_(comput
 # Configure the firewall
 
 **Debian/Ubuntu/Raspbian**  
-The config files can be found [here](/config_files/firewall-firewalld/)
+
+* [Easy setup - ufw](/config/firewall-ufw/)
+* [System Default - firewalld](/config/firewall-firewalld/)
+
 
 **CentOS**  
-The config files can be found [here](/config_files/firewall-nft/)
+
+The config files can be found [here](/config/firewall-nft/)
