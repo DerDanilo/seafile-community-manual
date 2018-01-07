@@ -1,1 +1,62 @@
+site_name: Seafile Community Manual
+site_url: http://seafile.readthedocs.io/
+site_description: Seafile Community Manual with Markdown.
+site_author: DerDanilo, Wolle
 theme: jekyll-theme-cayman
+
+repo_url: https://github.com/DerDanilo/seafile-community-manual.git
+
+pages:
+- 'Home': 'index.md'
+- 'Manual Changelog/Updates': 'manual_changelog_updates.md'
+- 'Installation': 
+    - 'System requirements': 'installation/system-requirements.md'
+    - 'Operating systems': 'installation/operating-system.md'
+    - 'Network': 'installation/network.md'
+    - 'Database': 'installation/database.md'
+    - 'Seafile': 'installation/seafile.md'
+    - 'Sending E-Mail': 'installation/sending-email.md'
+    - 'Memcached': 'installation/memcached.md'
+    - 'ReverseProxy/Webserver': 'installation/reverseproxy-webserver.md'
+    - 'Valid SSL Cert': 'installation/valid-ssl.md'
+    - 'Fail2ban': 'installation/fail2ban.md'
+    - 'Firewall': 'installation/firewall.md'
+    - 'Office':
+        - 'Overview': 'installation/office/overview.md'
+        - 'OnlyOffice': 'installation/office/onlyoffice.md'
+        - 'Collabora': 'installation/office/collabora.md'
+- 'Installing Updates':
+        - 'Updating': 'updates/updates.md'
+        - 'Update Changelog': 'updates/update_changelog.md'
+- 'Config':
+    - 'Overview': 'config/overview.md'
+    - 'Seafile':
+        - 'Overview': 'config/seafile/overview.md'
+        - 'Ccnet': 'config/seafile/ccnet.md'
+        - 'Seafile': 'config/seafile/seafile.md'
+        - 'Seahub': 'config/seafile/seahub.md'
+        - 'Sending E-Mail': 'config/seafile/sending-email.md'
+        - 'SeafDAV': 'config/seafile/seadav.md'
+    - 'Nginx': 'config/nginx.md'
+    - 'MariaDB': 'config/mariadb.md'
+    - 'Fail2ban': 'config/fail2ban.md'
+    - 'Firewall ufw': 'config/firewall-ufw.md'
+    - 'Firewall nft': 'config/firewall-nft.md'
+    - 'Firewall firewalld': 'config/firewall-firewalld.md'
+- 'Backup/Restore':
+    - 'Overview': 'backup/overview.md'
+    - 'Backup':
+        - 'Tar': 'backup/backup-tar.md'
+        - 'Rsync': 'backup/backup-rsync.md'
+        - 'Borg': 'backup/backup-borg.md'
+    - 'Restore':
+        - 'Tar': 'backup/restore-tar.md'
+        - 'Rsync': 'backup/restore-rsync.md'
+        - 'Borg': 'backup/restore-borg.md'
+
+markdown_extensions:
+    - toc:
+        permalink:
+    - admonition:
+
+copyright: Copyright &copy; 2017 <a href="https://forum.seafile.com/users/derdanilo">DerDanilo</a>, <a href="https://forum.seafile.com/users/wolle">Wolle</a>, <a href="/#contribution">Contribution</a>.
