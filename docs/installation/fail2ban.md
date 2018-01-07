@@ -38,4 +38,4 @@ root@cloudserver:~# systemctl enable Fail2ban
 
 # Configure Fail2ban
 Now proceed to configure fail2ban.
-The config files can be found [here](/config_files/fail2ban/)
+The config files can be found [here](/config/fail2ban/)
