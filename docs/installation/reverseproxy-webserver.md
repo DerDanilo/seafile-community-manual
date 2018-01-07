@@ -127,6 +127,12 @@ root@cloudserver:~# systemctl stop seahub
 root@cloudserver:~# systemctl stop seafile
 ```
 
+**Important Note** 
+
+You can also modify most of the config items via web interface. The config items are saved in database table (seahub-db/constance_config).
+They have a higher priority over the items in config files. If you want to disable settings via web interface, you can add `ENABLE_SETTINGS_VIA_WEB = False` to `seahub_settings.py`.
+
+
 Adjust 'SERVICE_URL' in `/opt/seafile/conf/ccnet.conf` (mind the IP address):
 ```
 SERVICE_URL = http://192.168.1.2/seafile
