@@ -117,7 +117,7 @@ drwx------ 3 seafserver seafserver 4096 Jul  3 17:59 seafile-data
 ```
 
 ### First Start of Seafile Server
-Now we can start Seafile Server as user *seafserver*
+We can start Seafile Server as user *seafserver*
 ```sh
 root@cloudserver:~# su -l seafserver
 $ seafile-server-latest/seafile.sh start
@@ -129,6 +129,36 @@ $ seafile-server-latest/seahub.sh start
 |`[ admin email ]`| < enter the mail address you'll use as admin account > |
 |`[ admin password ]`| < give it a password > |
 |`[ admin password again ]`| < password again > |
+
+
+### Change of Seafile-data location
+
+Stop Seafile Server
+```sh
+$ seafile-server-latest/seahub.sh stop
+$ seafile-server-latest/seafile.sh stop
+$ exit
+```
+
+There is some data located in the `/opt` directory. We need to move the data to `/srv` and change this. 
+
+**RECOMMENDED: Change config file**
+
+Change the config file path to let seafile server access it's data directory:
+```sh
+root@cloudserver:~# mv /opt/seafile/seahub-data /srv/seahub-data/
+root@cloudserver:~# echo '/srv/seahub-data' > /opt/seafile/ccnet/seafile.ini
+```
+
+**ALTERNATIVE: Symlink**
+
+Create a symlink to let seafile server access it's data directory:
+```sh
+root@cloudserver:~# mv /opt/seafile/seahub-data /srv/seahub-data/
+root@cloudserver:~# ln -s /opt/seafile/seahub-data /srv/seahub-data
+```
+
+At least start your Seafile Server again as user 'seafserver' to check it's still working. Stop Seafile Server before proceeding to the next step.
 
 --- 
 
@@ -168,27 +198,14 @@ For a test open a web browser and log into your new Seafile Server:
 http://<Server IP>/8000/
 ```
 
-Now stop Seafile Server
-```sh
-$ seafile-server-latest/seahub.sh stop
-$ seafile-server-latest/seafile.sh stop
-$ exit
-```
-
-There is some data located in the `/opt` directory. We should change this and move the data to `/srv`. A link will give Seafile Server access to its data:
-```sh
-root@cloudserver:~# mv /opt/seafile/seahub-data /srv/seahub-data/
-root@cloudserver:~# ln -s /opt/seafile/seahub-data /srv/seahub-data
-```
-
-At least start your Seafile Server again as user 'seafserver' to check it's still working. Stop Seafile Server before proceeding to the next step.
-
 --- 
 
 ## Enable Seafile Server autostart (systemd)
 
 For a convenient start of Seafile Server we need some appropriate definition files for the operating system. Debian 9/Ubuntu/CentOS use systemd as 
-init system, so we create service files for systemd. Create a file ` /etc/systemd/system/seafile.service` with the following contents:
+init system, so we create service files for systemd. 
+
+Create a file ` /etc/systemd/system/seafile.service` with the following contents:
 ```
 [Unit]
 Description=Seafile
