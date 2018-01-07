@@ -15,17 +15,20 @@ We will install Seafile Server in `/opt/seafile`, Seafile data in `/srv/seafile_
 
 **Debian**
 ```sh
-root@cloudserver:~# apt-get install python-setuptools python-imaging python-ldap python-mysqldb python-memcache python-urllib3
+root@cloudserver:~# apt-get install python-setuptools python-imaging \
+python-ldap python-mysqldb python-memcache python-urllib3
 ```
 
 **Ubuntu**
 ```sh
-root@cloudserver:~# apt-get install python-setuptools python-imaging python-ldap python-mysqldb python-memcache python-urllib3
+root@cloudserver:~# apt-get install python-setuptools python-imaging \
+python-ldap python-mysqldb python-memcache python-urllib3
 ```
 
 **CentOS**
 ```sh
-root@cloudserver:~# yum install python-setuptools python-imaging python-ldap python-mysqldb python-memcache python-urllib3
+root@cloudserver:~# yum install python-setuptools python-imaging \
+python-ldap python-mysqldb python-memcache python-urllib3
 ```
 
 ### Create system user
@@ -50,7 +53,7 @@ seafserver:x:1001:
 Download the lastest Seafile Server package from [here](https://www.seafile.com/en/download) and put it in `/opt/Seafile/Server/installed`. Adjust the version number.
 ```sh
 root@cloudserver:~#  mkdir /opt/seafile/installed
-root@cloudserver:~#  wget -P /opt/seafile/installed https://download.seadrive.org/seafile-server_6.2.2_x86-64.tar.gz
+root@cloudserver:~#  wget -P /opt/seafile/installed https://download.seadrive.org/seafile-server_6.2.3_x86-64.tar.gz
 ```
 
 ### Untar the package
@@ -63,28 +66,32 @@ It should look something like this:
 root@cloudserver:~# ls -l /opt/seafile
 total 8
 drwxr-xr-x 2 root root 4096 Jul  3 17:22 installed
-drwxrwxr-x 6  500  500 4096 Jun 13 07:52 seafile-server-6.1.1
+drwxrwxr-x 6  500  500 4096 Jun 13 07:52 seafile-server-6.2.3
 ```
 
-### Configure Seafile Server and databases.
+### Configure Seafile Server and databases
 ```sh
+# Create the seafile data folder
 root@cloudserver:~# mkdir /srv/seafile-data
-root@cloudserver:~# /opt/seafile/seafile-server-*/setup-seafile-mysql.sh
+
+# Run the seafile server setup script
+root@cloudserver:~# /bin/bash /opt/seafile/seafile-server-*/setup-seafile-mysql.sh
 ```
 
-- `[ server name ]` Cloud (whatever you like)
-- `[ This server's ip or domain ]` <Server IP> (Server's IP address)
-- `[ default "/opt/seafile/seafile-data" ]` /srv/seafile-data
-- `[ default "8082" ]` (leave the port as it is)
-- `[ 1 or 2 ]` 1 (create new databases)
-- `[ default "localhost" ]` (database runs on this server)
-- `[ default "3306" ]` (standard port for mysql or mariadb)
-- `[ root password ]` <enter root password>
-- `[ default "seafile" ]` (it's the name of the user in mariadb)
-- `[ password for seafile ]` (give the user a password, no need to remember)
-- `[ default "ccnet-db" ]`
-- `[ default "seafile-db" ]`
-- `[ default "seahub-db" ]`
+|:`[ server name ]`:| :< Servername >: |
+|:`[ This server's ip or domain ]`:|:< Server's DNS or IP address >:|
+|:`[ default "/opt/seafile/seafile-data" ]`:|:"/srv/seafile-data":|
+|:`[ default "8082" ]`:|:< leave the port as it is >:|
+|:`[ 1 or 2 ]`:|:"1 (create new databases)":|
+|:`[ default "localhost" ]`:|:< database runs on this server >:|
+|:`[ default "3306" ]`:|:< standard port for mysql or mariadb >:|
+|:`[ root password ]`:|:< enter DB server root password >:|
+|:`[ default "seafile" ]`:|:< it's the name of the user in mariadb >:|
+|: `[ password for seafile ]`:|:< give the user a password, no need to remember >:|
+|:`[ default "ccnet-db" ]`:|:<  >:|
+|:`[ default "seafile-db" ]`:|:<  >:|
+|:`[ default "seahub-db" ]`:|:<  >:|
+
 
 ### Fix file and folder permission
 Now the user seafserver needs to own the whole stuff:

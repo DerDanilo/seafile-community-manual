@@ -87,10 +87,9 @@ iface ens3 inet DHCP
 iface ens3 inet6 auto
 ```
 
-Change the network configuration to your actual values
+Change the network configuration to your actual values:
 ```shell
 ...
-
 # The primary network interface
 allow-hotplug ens3
 iface ens3 inet static
