@@ -66,23 +66,22 @@ to `/run/media/foo/seafbackup/seafile_databases/` on our local drive.
 
 #### 3. Seafile GC
 
-In order to avoid backing up deleted libraries or data, we shall run seafile
-garbage collection first.
-
-We can do a dry run first, without actually deleting any data. Depending on
-your configuration, running it as the `seafile user` might be preferable:
-
-```bash
-runuser -l seafile -c 'cd /srv/seafile/haiwen/seafile-server-latest && ./seaf-gc.sh --dry-run
-```
-
-To run the real garbage collection, remove the `--dry-run` parameter.
+In order to avoid backing up deleted libraries or data, we should run the
+seafile garbage collection first.
 
 ```bash
 runuser -l seafile -c 'cd /srv/seafile/haiwen/seafile-server-latest && ./seaf-gc.sh
 ```
 
-#### 4. Rsync data backup
+#### 4. Start Seafile and Seahub
+
+At this point, you can start back seafile and seahub:
+
+```
+systemctl start seahub && systemctl start seafile
+```
+
+#### 5. Rsync data backup
 
 It's time to start the actual data synchronization. Go to the directory where
 you would like the data to be copied to. Create the directory if it doesn't
@@ -107,7 +106,7 @@ Now, replace the user/server domain and issue the rsync command for a dry run
 (nothing will be copied yet):
 
 ```bash
-rsync -avzP --dry-run --delete --human-readable --stats -e  "ssh -p $remote_port -i $ssh_key" root@example.com:/srv/seafile/haiwen/seafile-data/ ./
+rsync -avzP --dry-run --delete --human-readable --stats -e "ssh -p $remote_port -i $ssh_key" root@example.com:/srv/seafile/haiwen/seafile-data/ ./
 ```
 
 NOTE: Preserving the `.../seafile-data/` trailing slash means that we wish to
@@ -122,9 +121,9 @@ The arguments are as follows:
  -P                 show progress
  -n, --dry-run      doesn't make any changes
  --delete           delete extraneous local files
- --human-readable    output in a human-readable format
- --stats             give some file-transfer stats
- -e                  alternative remote shell
+ --human-readable   output in a human-readable format
+ --stats            give some file-transfer stats
+ -e                 alternative remote shell
 ```
 
 The output should look something like this:
@@ -155,8 +154,8 @@ beforehand, this new sync will only pull the modified data, not all of it. If
 you run the sync for the first time, however, you will have to download all
 the files with their full size.
 
-When you're ready to begin synching, issues the above command without the
---dry-run parameter.
+When you're ready to begin synching, issue the command without the
+--dry-run argument.
 
 ```bash
 rsync -avzP --delete --human-readable --stats -e  "ssh -p $remote_port -i $ssh_key" root@example.com:/srv/seafile/haiwen/seafile-data/ ./
@@ -171,10 +170,14 @@ If everything went according to plan, we have retrieved a copy of the
 The contents of the `seafile_data` folder are now synchronized to
 `/run/media/foo/seafbackup/seafile_databases/` .
 
-Recovering from a data loss will just be a matter of restoring the databases
-and the data directory.
-
 As the sync will only pull the modified files from the remote host, the more
 often backups are run, the less data will need to be copied. A possible
 solution for automating the backup is using `CRON` to run a script with all
 the above-mentioned commands.
+
+Backing up to a remote host with an unprivileged user and automatic snapshots
+significantly increases security of the backups. An attacker cannot delete the
+backup without intruding into the backup host as well, crypto trojans cannot
+encrypt the backup, some history can be kept to be be prepared for issues that
+are found late and depending on the target location there is great protection
+against lightning strikes, other bad weather conditions, fire and theft.
