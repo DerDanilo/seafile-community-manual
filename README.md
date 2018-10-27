@@ -3,6 +3,7 @@
 Seafile Community Manual for Seafile Community Edition
 
 [![GitHub license](https://img.shields.io/github/license/DerDanilo/seafile-community-manual.svg)](https://github.com/DerDanilo/seafile-community-manual/blob/master/LICENSE)
+[![Documentation Status](https://readthedocs.org/projects/seafile/badge/?version=latest)](https://seafile.readthedocs.io/en/latest/?badge=latest)
 
 The content of master is automatically displayed at [https://seafile.readthedocs.io/en/latest/](https://seafile.readthedocs.io/en/latest/).
 
