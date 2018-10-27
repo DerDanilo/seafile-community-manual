@@ -7,10 +7,10 @@
 
 ### Why another Seafile manual?
 
-The idea if this manual is to make it possible for Seafile users to get an easy start
-and be able to mantain their Seafile server. Another goal is to provide somewhat of a
-structure on each step required to reach a certain goal rather than a collection of 
-information spread over a confusing and hard to read server manual.
+The idea if this community driven manual is to make it possible for new and existing
+Seafile users to get an easy start and be able to mantain their Seafile server. Another
+goal is to provide somewhat of a structure on each step required to reach a certain goal
+rather than a collection of information spread over a confusing and hard to read server manual.
 
 ### What is this manual for?
 
