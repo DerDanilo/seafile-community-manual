@@ -5,7 +5,14 @@
 ---
 ## About
 
-### What is this guide for?
+### Why another Seafile manual?
+
+The idea if this manual is to make it possible for Seafile users to get an easy start
+and be able to mantain their Seafile server. Another goal is to provide somewhat of a
+structure on each step required to reach a certain goal rather than a collection of 
+information spread over a confusing and hard to read server manual.
+
+### What is this manual for?
 
 We write this step-by-step guide to enable all users to setup Seafile on their own but without the struggle 
 of having to read the more complex and sometimes confusing [original manual](https://manual.seafile.com/).
@@ -18,7 +25,9 @@ Don't expect this manual to provide you with easy copy & paste commands/config o
 If you are new to Seafile we encourage you to do the recommend checks whereever we suggest them. This helps to pinpoint possible errors before you even have to search for them.
 
 This manual will show how to setup a Seafile Server using MariaDB as the database server, Memcached to speed up the webinterface response and Nginx as local reverse proxy.
+
 All operations will be peformed as root unless otherwise specified. So login as root or 'su' to root, if logged in as ordinary user:
+
 ```bash
 su
 # or
@@ -41,14 +50,14 @@ For support and official documentation please consult the [original manual](http
 
 ## Contribution
 
-You are welcome to contribute to this manual. Please submit your code on [Github](https://github.com/DerDanilo/seafile-community-manual.git).
+You are welcome to contribute to this manual. Please submit your code on [Github](https://github.com/DerDanilo/seafile-community-manual).  
+If you found an issue please report it on [![GitHub issues](https://img.shields.io/github/issues/DerDanilo/seafile-community-manual.svg)](https://github.com/DerDanilo/seafile-community-manual/issues).
 
-### Wrong or missing information
 You can contact us via the forum, but it takes usually longer to get the changes into the manual this way.
 It is faster if you submit the suggested changes via Github.
 
 ### Languages / Translation
-At a later point we might provide this manual in other languages if we find at least two persons to maintain each translation. Currently this is not the case.
+At a later point we might provide this manual in other languages if we find at least two persons to maintain each language. Currently this is not the case.
 The English version has priority as the focus is to have a working manual and not many languages.
 
 Please contact us via [Seafile Forum](https://forum.seafile.com/) if you would like to contribute.
@@ -57,6 +66,5 @@ Please contact us via [Seafile Forum](https://forum.seafile.com/) if you would l
 
 ## Status
 
-This guide is "work in progress". We released it already, as it contains enough information to proceed with the setup of Seafile.
-We will update the manual whenever we find time to do so. Please keep in mind that it is very time consuming to write such manual.
-So far we spend ~ 90h on the manual.
+This guide is "work in progress" and will most propably stay this way. It was released already, as it contains enough information to proceed with the setup of Seafile.
+You are welcome to contribute to bring it to a complete state some day.

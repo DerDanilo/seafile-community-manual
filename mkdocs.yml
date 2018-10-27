@@ -1,10 +1,10 @@
 site_name: Seafile Community Manual
 site_url: http://seafile.readthedocs.io/
 site_description: Seafile Community Manual with Markdown.
-site_author: DerDanilo and Seafile Community 
+site_author: Seafile Community
 theme: readthedocs
 
-repo_url: https://github.com/DerDanilo/seafile-community-manual.git
+repo_url: https://github.com/DerDanilo/seafile-community-manual
 
 pages:
 - 'Home': 'index.md'
@@ -59,4 +59,4 @@ markdown_extensions:
         permalink:
     - admonition:
 
-copyright: Copyright &copy; 2018 <a href="https://forum.seafile.com/users/derdanilo">DerDanilo</a>, Seafile Community, <a href="/#contribution">Contribution</a>.
+copyright: Copyright &copy; 2018 Seafile Community, <a href="/#contribution">Contribution</a>, [![GitHub issues](https://img.shields.io/github/issues/DerDanilo/seafile-community-manual.svg)](https://github.com/DerDanilo/seafile-community-manual/issues)

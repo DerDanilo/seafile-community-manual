@@ -94,7 +94,7 @@ server {
         proxy_send_timeout  36000s;
         send_timeout  36000s;
 
-        # This option is only available for Nginx >= 1.8.0. See more details below.
+        # This option is only available for Nginx >= 1.8.0.
         client_max_body_size 0;
         proxy_request_buffering off;
 

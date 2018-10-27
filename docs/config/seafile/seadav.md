@@ -78,13 +78,13 @@ Please first note that, there are some known performance limitation when you map
 
 So WebDAV is more suitable for infrequent file access. If you want better performance, please use the sync client instead.
 
-**Windows**
+### Windows
 
 The client recommendation for WebDAV depends on your Windows version:
 - For Windows XP: Only non-encryped HTTP connection is supported by the Windows Explorer. So for security, the only viable option is to use third-party clients, such as Cyberduck or Bitkinex.
 - For Vista and later versions: Windows Explorer supports HTTPS connection. But it requires a valid certificate on the server. It's generally recommended to use Windows Explorer to map a webdav server as network dirve. If you use a self-signed certificate, you have to add the certificate's CA into Windows' system CA store.
 
-**Linux**
+### Linux
 
 On Linux you have more choices. You can use file manager such as Nautilus to connect to webdav server. Or you can use davfs2 from the command line.
 
@@ -103,7 +103,7 @@ It's recommended to disable LOCK operation for davfs2. You have to edit /etc/dav
  use_locks       0
 ```
 
-**Mac OS X**
+### Mac OS X
 
 Finder's support for WebDAV is also not very stable and slow. So it is recommended to use a webdav client software such as Cyberduck.
 
