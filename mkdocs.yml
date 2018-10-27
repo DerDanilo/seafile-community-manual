@@ -59,4 +59,4 @@ markdown_extensions:
         permalink:
     - admonition:
 
-copyright: Copyright &copy; 2018 Seafile Community, <a href="/#contribution">Contribution</a>, [![GitHub issues](https://img.shields.io/github/issues/DerDanilo/seafile-community-manual.svg)](https://github.com/DerDanilo/seafile-community-manual/issues)
+copyright: Copyright &copy; 2018 Seafile Community, <a href="/#contribution">Contribution</a>, <a href="https://github.com/DerDanilo/seafile-community-manual/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/DerDanilo/seafile-community-manual.svg"></a>

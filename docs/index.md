@@ -51,7 +51,7 @@ For support and official documentation please consult the [original manual](http
 ## Contribution
 
 You are welcome to contribute to this manual. Please submit your code on [Github](https://github.com/DerDanilo/seafile-community-manual).  
-If you found an issue please report it on [![GitHub issues](https://img.shields.io/github/issues/DerDanilo/seafile-community-manual.svg)](https://github.com/DerDanilo/seafile-community-manual/issues).
+If you found an issue please report it on Github [![GitHub issues](https://img.shields.io/github/issues/DerDanilo/seafile-community-manual.svg)](https://github.com/DerDanilo/seafile-community-manual/issues).
 
 You can contact us via the forum, but it takes usually longer to get the changes into the manual this way.
 It is faster if you submit the suggested changes via Github.
