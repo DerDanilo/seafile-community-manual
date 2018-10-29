@@ -100,6 +100,9 @@ docker run -dit -p 88:80 --restart always --name oods onlyoffice/documentserver
 
 *Nothing yet confirmed on CentOS 7, you may try any of the above commands, they may work also.*
 
+**If your OnlyOffice container runs on them same host as you seafile instance, you should bind the container to localhost:**
+
+Change `88:80` -> `127.0.0.1:88:80`.
 
 **EXAMPLE: Debian Docker container with MEMORY LIMITS**
 

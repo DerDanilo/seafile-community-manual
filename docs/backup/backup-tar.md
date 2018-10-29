@@ -1,7 +1,7 @@
 ## Backup Installation
 It is advised to have a Backup of the configuration. A little script will do this task. If you have the possibility to perform an easy backup of the whole server you can do it that way as well.
 ### Download the backup script
-Download the script [BackupSeafileInstall](https://raw.githubusercontent.com/DerDanilo/Seafile-Best-Practise/master/BackupSeafileInstall "BackupSeafileInstall") and save it in `/usr/local/sbin/`.
+Download the script [BackupSeafileInstall](https://raw.githubusercontent.com/DerDanilo/seafile-community-manual/master/docs/source/backup-tar/BackupSeafileInstall.sh") and save it in `/usr/local/sbin/`.
 
 Make it executable:
 ```sh
@@ -102,7 +102,7 @@ root@cloudserver:~# rm -rf /srv/SavedBeforeRestore
 ## Backup Data
 To have a Backup of the data in Seafile Server a little script will do this task.
 ### Download the backup script
-Download the script [BackupSeafileData](https://raw.githubusercontent.com/DerDanilo/Seafile-Best-Practise/master/BackupSeafileData "BackupSeafileData") and save it in `/usr/local/sbin/`.
+Download the script [BackupSeafileData](https://raw.githubusercontent.com/DerDanilo/seafile-community-manual/master/docs/source/backup-tar/BackupSeafileData.sh) and save it in `/usr/local/sbin/`.
 
 Make it executable:
 ```sh
