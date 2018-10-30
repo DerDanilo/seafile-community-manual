@@ -39,6 +39,10 @@ There are also some 3rd Party Seafile Docker images that might work better.
 
 *The manual does not yet cover this topic.*
 
+### ARM64 Platforms
+If you want to use Seafile on a ARM64 Platform, [this guide](https://forum.seafile.com/t/compilation-arm64-done/6170) will help you. You can download 
+the packed version 6.3.0 (**deprecated!**) [here](https://cdn.iklive.eu/tcb13/2018/seafile-server_6.3.0_arm64.tar.gz), it should definately work with Debian and Ubuntu.
+
 ---
 
 ## Storage
