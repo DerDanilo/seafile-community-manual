@@ -51,11 +51,31 @@ root@cloudserver:~# yum install python-setuptools python-imaging \
 python-ldap python-mysqldb python-memcache python-urllib3
 ```
 
+**Arch Linux | ARM**
+```sh
+root@cloudserver:~#  pacman -S base-devil wget python2 python2-requests python2-imaging python2-ldap python2-pip python2-numpy mysql-python 
+root@cloudserver:~# cower -d libsepol libselinux && cd libsepol && makepk -si && cd .. && cd libselinux && makepk -si
+```
+> Change the arch `arch=('i686' 'x86_64' 'armv6h') to `arch=('any')` if you're using the Pi 3.
+```
+root@cloudserver:~# pip2 install --upgrade pip && pip2 install pillow moviepy captcha
+```
+
 ## Download latest stable Seafile Server package
+* 64 Bit
+
 Download the lastest Seafile Server package from [here](https://www.seafile.com/en/download) and put it in `/opt/Seafile/installed`. Adjust the version number.
 ```sh
 root@cloudserver:~#  mkdir /opt/seafile/installed
 root@cloudserver:~#  wget -P /opt/seafile/installed https://download.seadrive.org/seafile-server_6.2.3_x86-64.tar.gz
+```
+
+* Raspberry Pi
+
+Download the lastest Seafile Server package from [here](https://www.seafile.com/en/download) and put it in `/opt/Seafile/installed`. Adjust the version number.
+```sh
+root@cloudserver:~#  mkdir /opt/seafile/installed
+root@cloudserver:~#  wget -P /opt/seafile/installed https://github.com/haiwen/seafile-rpi/releases/download/v6.3.4/seafile-server_6.3.4_stable_pi.tar.gz
 ```
 
 ## Untar the package
