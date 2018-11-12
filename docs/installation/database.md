@@ -29,9 +29,19 @@ root@cloudserver:~# yum install mariadb-server
 root@cloudserver:~# systemctl enable mariadb
 ```
 
+**Arch Linux | ARM**
+
+```sh
+root@cloudserver:~# pacman -S mariadb
+root@cloudserver:~# mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
+root@cloudserver:~# mysql_secure_installation
+root@cloudserver:~# systemctl enable mariadb
+```
+
 # Enable MariaDB autostart
 
-**Debian/Ubuntu/Raspbian/CentOS**
+**Debian/Ubuntu/Raspbian/CentOS/Arch Linux | ARM**
 ```sh
 root@cloudserver:~# systemctl enable mariadb
 ```
+
