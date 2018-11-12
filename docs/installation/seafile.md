@@ -56,7 +56,7 @@ python-ldap python-mysqldb python-memcache python-urllib3
 root@cloudserver:~#  pacman -S base-devil wget python2 python2-requests python2-imaging python2-ldap python2-pip python2-numpy mysql-python 
 root@cloudserver:~# cower -d libsepol libselinux && cd libsepol && makepk -si && cd .. && cd libselinux && makepk -si
 ```
-> Change the arch `arch=('i686' 'x86_64' 'armv6h') to `arch=('any')` if you're using the Pi 3.
+> Change the arch `arch=('i686' 'x86_64' 'armv6h')` to `arch=('any')` if you're using the Pi 3.
 ```
 root@cloudserver:~# pip2 install --upgrade pip && pip2 install pillow moviepy captcha
 ```
