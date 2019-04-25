@@ -1,7 +1,7 @@
 ## Backup Installation
 It is advised to have a Backup of the configuration. A little script will do this task. If you have the possibility to perform an easy backup of the whole server you can do it that way as well.
 ### Download the backup script
-Download the script [BackupSeafileInstall](https://raw.githubusercontent.com/DerDanilo/seafile-community-manual/master/docs/source/backup-tar/BackupSeafileInstall.sh") and save it in `/usr/local/sbin/`.
+Download the script [BackupSeafileInstall](https://raw.githubusercontent.com/DerDanilo/seafile-community-manual/master/docs/source/backup-tar/BackupSeafileInstall.sh) and save it in `/usr/local/sbin/`.
 
 Make it executable:
 ```sh

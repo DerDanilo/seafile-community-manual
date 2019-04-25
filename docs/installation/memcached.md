@@ -50,9 +50,12 @@ Append the following lines to `/opt/Seafile/Server/conf/seahub_settings.py` to e
 ...
 CACHES = {
     'default': {
-        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+        'BACKEND': 'django_pylibmc.memcached.PyLibMCCache',
         'LOCATION': '127.0.0.1:11211',
-    }
+    },
+    'locmem': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+    },
 }
 ...
 ```
