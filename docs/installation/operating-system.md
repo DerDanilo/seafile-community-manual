@@ -11,7 +11,7 @@ This manual covers setup on the following operating systems:
 Still in progress and may not be complete:
 
 * CentOS 7 (latest)
-* Raspbian (Raspberry Pi)
+* Raspbian & Arch Linux | ARM (Raspberry Pi)
 * Docker
 
 ---
@@ -30,8 +30,11 @@ You can use CentOS 7 64-bit as operating system.
 The *64-bit PC Network installer* will be sufficiant. It can be obtained from [www.centos.org](https://www.centos.org/download/). 
 
 ### Raspbian (Raspberry Pi)
-You can use  Debian 9 *Raspbian* as operating system.   
+* You can use Debian 9 *Raspbian* as operating system.   
 We recommend to use the *Minimal image*. It can be obtained from [www.raspberrypi.org](https://www.raspberrypi.org/downloads/raspbian/).
+
+* You can use Arch Linux ARM as a operating system.
+We recommend to use the *ArchLinuxARM-rpi-2-latest.tar.gz* for the Pi 2 & Pi 3 (+B is not supported). It can be obtained from [www.archlinuxarm.org](http://sg.mirror.archlinuxarm.org/os/).
 
 ### Docker (Linux & Windows)
 You may also use the [offical docker image](https://hub.docker.com/r/seafileltd/seafile/) of Seafile server. Be aware of its design problems which cause [security issues](https://forum.seafile.com/t/docker-migration/6732/4).  
