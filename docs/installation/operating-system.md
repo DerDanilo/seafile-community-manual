@@ -34,7 +34,8 @@ You can use  Debian 9 *Raspbian* as operating system.
 We recommend to use the *Minimal image*. It can be obtained from [www.raspberrypi.org](https://www.raspberrypi.org/downloads/raspbian/).
 
 ### Docker (Linux & Windows)
-You may also use the [offical docker image](https://hub.docker.com/r/seafileltd/seafile/) of Seafile server. Aware of its designn problems which cause [security issues](https://forum.seafile.com/t/docker-migration/6732/4).  
+You may also use the [offical docker image](https://hub.docker.com/r/seafileltd/seafile/) of Seafile server. Be aware of its design problems which cause [security issues](https://forum.seafile.com/t/docker-migration/6732/4).  
+=======
 
 There are also some 3rd Party Seafile Docker images that might work better:  
 [foxel/seafile](https://hub.docker.com/r/foxel/seafile/) (webserver included in container, mariadb database in external container, docker-compose yaml available)  
