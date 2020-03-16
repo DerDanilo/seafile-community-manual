@@ -466,3 +466,8 @@ LoadModule ssl_module modules/mod_ssl.so
   
 </VirtualHost>
 ```
+
+### Troubleshooting
+Some people may get a warning "The document could not be saved...", when trying to open a document.
+Changing the SERVICE_URL to the correct https address of your server can fix the problem.
+To change it, log into the web-panel as admin and go to System-Administration -> Settings.
