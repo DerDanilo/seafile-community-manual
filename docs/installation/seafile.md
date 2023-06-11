@@ -235,10 +235,10 @@ Description=Seafile
 After=network.target mysql.service
 
 [Service]
-Type=oneshot
+Type=forking
 ExecStart=/opt/seafile/seafile-server-latest/seafile.sh start
 ExecStop=/opt/seafile/seafile-server-latest/seafile.sh stop
-RemainAfterExit=yes
+LimitNOFILE=infinity
 User=seafserver
 Group=seafserver
 
@@ -253,13 +253,12 @@ Description=Seafile hub
 After=network.target seafile.service
 
 [Service]
+Type=forking
 # change start to start-fastcgi if you want to run fastcgi
 ExecStart=/opt/seafile/seafile-server-latest/seahub.sh start
 ExecStop=/opt/seafile/seafile-server-latest/seahub.sh stop
 User=seafserver
 Group=seafserver
-Type=oneshot
-RemainAfterExit=yes
 
 [Install]
 WantedBy=multi-user.target
